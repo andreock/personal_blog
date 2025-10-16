@@ -113,7 +113,7 @@ chmod +x wireguard-install.sh
 
 Transfer the generated config file to your device and import it in your Wireguard client.
 
-Try to ping the Wireguard interface IP of your VPS to check if the VPN is working.
+Try to ping the Wireguard interface IP of your VPS to check if the VPN is working. If you don't want to route all your traffic on the VPN, you can edit the AllowedIPs section of Wireguard client config by putting the subnet of your VPN interface, usually `10.0.0.0/24`, instead of `0.0.0.0/0`.
 
 Now you can enable the firewall(run this step only if the VPN works as it will break your SSH connection):
 
