@@ -1,3 +1,4 @@
 # allow crawling everything by default
 User-agent: *
 Disallow:
+Sitemap: https://andreock.github.io/personal_blog/sitemap.xml
