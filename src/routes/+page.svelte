@@ -6,18 +6,15 @@
 	const markdownFiles = import.meta.glob('/src/routes/**/*.md', { eager: true });
 	const post_path = Object.keys(markdownFiles);
 	const post_meta = Object.values(markdownFiles).map((post: any) => post.metadata);
-
-	console.log(post_path);
-	console.log(post_meta);
 </script>
 
 <main class="mx-auto max-w-2xl">
 	<h1 class="mt-8 mb-8 text-center text-4xl font-bold">Andreock's blog</h1>
-	<div class="flex flex-row justify-center space-y-4">
-		{#each post_path as post_link, i}
-			<Card size="sm">
+	<div class="flex flex-row justify-center space-y-4 space-x-4">
+		{#each post_path as post_link, i (post_link)}
+			<Card size="sm" class="flex h-[400px] w-72 flex-col">
 				<img
-					class="h-40"
+					class="h-40 rounded-lg"
 					src={resolve(post_meta[i].thumbnail)}
 					alt={post_meta[i].title + ' thumbnail'}
 				/>
