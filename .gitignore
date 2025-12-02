@@ -24,3 +24,6 @@ vite.config.ts.timestamp-*
 
 # PrismJS Atom theme
 static/prism-atom-dark.css
+
+# Generated sitemap.xml
+static/sitemap.xml
