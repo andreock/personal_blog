@@ -1,12 +1,24 @@
 <script>
 	import ArticleHeader from '$lib/Components/ArticleHeader.svelte';
 	import { resolve } from '$app/paths';
+	import { onMount } from 'svelte';
 	const { title, author, description, thumbnail } = $props();
+
+	let location_href = $state('');
+
+	onMount(() => {
+		// Get the base URL (protocol + host) including /personal_blog
+		location_href = location.href.split('/').slice(0, 4).join('/');
+	});
 </script>
 
 <svelte:head>
 	<link rel="stylesheet" href={resolve('/prism-atom-dark.css')} />
 	<title>{title}</title>
+	<meta name="description" content={description} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={location_href + thumbnail} />
 </svelte:head>
 
 <div class="min-h-screen overflow-x-hidden bg-gray-50 font-sans text-gray-900">

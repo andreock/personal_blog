@@ -12,17 +12,21 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<Navbar>
-	<NavBrand href={resolve('/')}>
-		<img src={resolve('/icon.png')} class="me-3 h-6 rounded-full sm:h-9" alt="Flowbite Logo" />
-		<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
-			>Andreock's blog</span
-		>
-	</NavBrand>
-	<NavHamburger />
-	<NavUl {activeUrl}>
-		<NavLi href={resolve('/')}>Home</NavLi>
-	</NavUl>
-</Navbar>
+<div class="relative">
+	<Navbar class="sticky start-0 top-0 z-20 w-full">
+		<NavBrand href={resolve('/')}>
+			<img src={resolve('/icon.png')} class="me-3 h-6 rounded-full sm:h-9" alt="Flowbite Logo" />
+			<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
+				>Andreock's blog</span
+			>
+		</NavBrand>
+		<NavHamburger />
+		<NavUl {activeUrl}>
+			<NavLi href={resolve('/')}>Home</NavLi>
+		</NavUl>
+	</Navbar>
 
-{@render children?.()}
+	<div class="overflow-scroll">
+		{@render children?.()}
+	</div>
+</div>

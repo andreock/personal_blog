@@ -2,11 +2,31 @@
 	import { Card, Button } from 'flowbite-svelte';
 	import { ArrowRightOutline } from 'flowbite-svelte-icons';
 	import { resolve } from '$app/paths';
+	import { onMount } from 'svelte';
 
 	const markdownFiles = import.meta.glob('/src/routes/**/*.md', { eager: true });
 	const post_path = Object.keys(markdownFiles);
 	const post_meta = Object.values(markdownFiles).map((post: any) => post.metadata);
+
+	let location_href = $state('');
+
+	onMount(() => {
+		// Get the base URL (protocol + host) including /personal_blog
+		location_href = location.href.slice(0, -1);
+	});
+
+	const title = "Andreock's blog";
+	const description = 'A simple blog where I publish some stuff that I made';
+	const thumbnail = '/blog_thumbnail.png';
 </script>
+
+<svelte:head>
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={location_href + thumbnail} />
+</svelte:head>
 
 <main class="mx-auto max-w-2xl">
 	<div
