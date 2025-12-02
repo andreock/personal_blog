@@ -9,8 +9,9 @@
 </script>
 
 <main class="mx-auto max-w-2xl">
-	<h1 class="mt-8 mb-8 text-center text-4xl font-bold">Andreock's blog</h1>
-	<div class="flex flex-row justify-center space-y-4 space-x-4">
+	<div
+		class="flex flex-col items-center justify-center lg:flex-row lg:space-x-4 [@media(max-width:768px)]:space-y-4"
+	>
 		{#each post_path as post_link, i (post_link)}
 			<Card size="sm" class="flex h-[400px] w-72 flex-col">
 				<img
@@ -25,12 +26,14 @@
 					<p class="mb-3 leading-tight font-normal text-gray-700 dark:text-gray-400">
 						{post_meta[i].description}
 					</p>
-					<Button
-						class="w-40"
-						href={resolve(post_link.replace('/src/routes', '').replace('+page.md', ''))}
-					>
-						Read more <ArrowRightOutline class="ms-2 h-6 w-6 text-white" />
-					</Button>
+					<div class="md:flex md:items-center">
+						<Button
+							class="w-40"
+							href={resolve(post_link.replace('/src/routes', '').replace('+page.md', ''))}
+						>
+							Read more <ArrowRightOutline class="ms-2 h-6 w-6 text-white" />
+						</Button>
+					</div>
 				</div>
 			</Card>
 		{/each}
