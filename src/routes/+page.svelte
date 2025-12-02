@@ -8,13 +8,7 @@
 	const post_path = Object.keys(markdownFiles);
 	const post_meta = Object.values(markdownFiles).map((post: any) => post.metadata);
 
-	let location_href = $state('');
-
-	onMount(() => {
-		// Get the base URL (protocol + host) including /personal_blog
-		location_href = location.href.slice(0, -1);
-	});
-
+	const location_href = 'https://andreock.github.io/personal_blog/';
 	const title = "Andreock's blog";
 	const description = 'A simple blog where I publish some stuff that I made';
 	const thumbnail = '/blog_thumbnail.png';

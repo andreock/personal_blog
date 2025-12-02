@@ -4,12 +4,7 @@
 	import { onMount } from 'svelte';
 	const { title, author, description, thumbnail } = $props();
 
-	let location_href = $state('');
-
-	onMount(() => {
-		// Get the base URL (protocol + host) including /personal_blog
-		location_href = location.href.split('/').slice(0, 4).join('/');
-	});
+	const location_href = 'https://andreock.github.io/personal_blog/';
 </script>
 
 <svelte:head>
