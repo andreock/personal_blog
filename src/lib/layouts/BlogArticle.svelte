@@ -9,7 +9,7 @@
 	<title>{title}</title>
 </svelte:head>
 
-<div class="min-h-screen bg-gray-50 font-sans text-gray-900">
+<div class="min-h-screen overflow-x-hidden bg-gray-50 font-sans text-gray-900">
 	<ArticleHeader {title} {author} {description} image={thumbnail} />
 	<main class="mx-auto max-w-3xl px-4 pb-16">
 		<article class="prose prose-lg prose-blue">
@@ -38,5 +38,13 @@
 
 	code {
 		@apply m-1 overflow-auto rounded-lg bg-gray-900 p-1 text-gray-100;
+	}
+
+	div {
+		@apply w-full overflow-x-auto;
+	}
+
+	div table {
+		@apply min-w-max;
 	}
 </style>
