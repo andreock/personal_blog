@@ -29,7 +29,7 @@
 		{#each post_path as post_link, i (post_link)}
 			<Card size="sm" class="flex h-[400px] w-72 flex-col">
 				<img
-					class="h-40 rounded-lg"
+					class="h-36 rounded-xl p-2"
 					src={resolve(post_meta[i].thumbnail)}
 					alt={post_meta[i].title + ' thumbnail'}
 				/>
